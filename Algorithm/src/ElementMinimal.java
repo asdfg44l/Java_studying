@@ -10,7 +10,11 @@ class ElementMinimal{
      e.Ele_Min(a);
      System.out.print(s.elapseTime());
 	}
-	
+	/**找出陣列元素間相距的最小距離
+	 * 利用quickSort排序
+	 * 找出各元素間的距離,並找出最小距離
+	 * 
+	 */
 	public int Ele_Min(int[] A) {
 	    Sort(A);
 		int min=A[1]-A[0];
