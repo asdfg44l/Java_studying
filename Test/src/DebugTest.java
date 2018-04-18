@@ -11,7 +11,7 @@ public abstract class DebugTest {
 
 class HW01 extends DebugTest{
 	public static void main(String[] args) {
-		HW01 h = new HW01(RandomArray.getArray(10000));
+		HW01 h = new HW01(RandomItem.getArray(10000));
         StopClass stop = new StopClass();
 		h.max();
         h.dot(h.A);

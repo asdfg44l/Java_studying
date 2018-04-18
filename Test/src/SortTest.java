@@ -2,7 +2,7 @@
 public class SortTest{
 
 	public static void main(String[] args) {
-		int[] test = RandomArray.getArray(1000000);
+		int[] test = RandomItem.getArray(100000);
 		int[] aux=new int[test.length];
         /*
 		System.out.print("未排序的陣列: ");
@@ -13,7 +13,7 @@ public class SortTest{
         */
         System.out.println(" ");
         StopClass s = new StopClass();
-        MergeSort(test,aux,0,test.length-1);
+        shuffle(test);
 		System.out.println("排序所耗費的時間: "+s.elapseTime());
 		/*
 		System.out.print("排序後的陣列: ");
@@ -71,11 +71,21 @@ public class SortTest{
 		}
 		
 	}
+	/*Knuth Shuffle
+	 * 洗亂陣列中元素的順序
+	 */
+	private static void shuffle(int[] A) {
+		
+		for(int i=0;i<A.length;i++) {
+			int r=RandomItem.uniform(i+1);
+			exch(A,i,r);
+		}
+	}
 
 	/*依序輸入陣列,以及待交換的兩個id
 	 * 
 	 */
-	 static void exch(int[] a,int i,int j) {
+	 private static void exch(int[] a,int i,int j) {
 		int buffer =a[i];
 		a[i]=a[j];
 		a[j]=buffer;
@@ -84,8 +94,8 @@ public class SortTest{
 	/*專門給BiInserSort使用
 	 *輸入陣列,輸入待排序數字的ID
 	 * 
-	 */
-	static int BiSearch(int[] A,int i) {
+	 */	 
+	 private static int BiSearch(int[] A,int i) {
         int ho =i;
 		int lo =0;
 		while(lo<=ho) {
@@ -96,6 +106,7 @@ public class SortTest{
 		}
 		return lo+(ho-lo)/2;
 	}
+	 
 	
 	
 	
@@ -112,7 +123,7 @@ public class SortTest{
 	 * magic number=3x+1
 	 * 
 	 */
-	static int[] shellSort(int[] A) {
+	static void shellSort(int[] A) {
 		int h=1;
 		int N=A.length;
 		while(h<N/3) h=3*h+1;
@@ -126,8 +137,9 @@ public class SortTest{
 			h=h/3;
 		}
 		InsertSort(A,0,A.length-1);
-		return A;
 	}
+	
+	
 	static void MergeSort(int[] a,int[] aux,int lo,int hi) {
 		int CUTOFF=7;
 		
@@ -139,11 +151,11 @@ public class SortTest{
 		int mid =lo+(hi-lo)/2;
 		MergeSort(a,aux,lo,mid);
 		MergeSort(a,aux,mid+1,hi);
-		if(a[mid+1]>a[mid])return;		
+		if(a[mid+1]>a[mid])return;		//將已經有順序的兩組數字直接回傳
 		Merge(a,aux,lo,mid,hi);
 		
 	}
-	static void Merge(int[] a,int[] aux,int lo,int mid,int hi) {
+	private static void Merge(int[] a,int[] aux,int lo,int mid,int hi) {
 		for(int k=lo;k<=hi;k++) {
 			aux[k]=a[k];
 		}
@@ -156,6 +168,8 @@ public class SortTest{
 			else                   a[k]=aux[i++];
 		}
 	}
+	
+	
 }
 
 

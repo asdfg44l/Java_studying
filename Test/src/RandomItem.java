@@ -1,5 +1,5 @@
 
-public class RandomArray {
+public class RandomItem {
    
    public static int[] getArray(int a) {
 	  int[] A = new int[a];
@@ -8,4 +8,10 @@ public class RandomArray {
 			A[i]=num;
    }return A;
 }
+   
+   public static int uniform(int a) {
+	   
+	   int num=(int) (Math.random()*a);
+	   return num;
+   }
 }

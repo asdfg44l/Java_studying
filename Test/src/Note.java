@@ -1,7 +1,7 @@
 class Note{
 	
 	public static void main(String[] args) {
-		int[] a = RandomArray.getArray(1000000);
+		int[] a = RandomItem.getArray(1000000);
 		Note n =new Note();
 		StopClass s =new StopClass();
 		n.testing(a);

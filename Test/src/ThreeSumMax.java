@@ -3,7 +3,7 @@ public class ThreeSumMax {
 	
 	public static void main(String[] args) {
 		ThreeSumMax t=new ThreeSumMax();
-		int[] A = RandomArray.getArray(1000000);
+		int[] A = RandomItem.getArray(1000000);
 		StopClass s = new StopClass();
 		t.T_MaxBoost(A);
 		System.out.print("Time cost: "+s.elapseTime()+"¬í");
