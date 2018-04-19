@@ -3,14 +3,8 @@ package Sort;
 
 public class myQuickSort 
 {   
-	public static void main(String[] args) {
-		int[] a= {8,7,3,0,9,10,5,45,88};
-		System.out.print(partition(a,0,8));
-		/*
-		for(int num :a)System.out.print(num+" ");
-		*/
-	}
-	
+    
+    //交換陣列中的兩個元素
 	private static void exch(int[] A,int i,int j)
 	{
 		int buffer=A[i];
@@ -18,6 +12,7 @@ public class myQuickSort
 		A[j]=buffer;
 	}
 	
+	//將陣列中的元素洗亂
 	private static void shuffle(int[] A)
 	{
 	   for(int i=0;i<A.length;i++) 
@@ -27,6 +22,7 @@ public class myQuickSort
 	   }
 	}
 	
+	
 	private static int mediumOf3(int[] A,int lo,int mid,int hi)
 	{
 		int[] ax= {A[lo],A[mid],A[hi]};
@@ -35,6 +31,11 @@ public class myQuickSort
 		
 	}
 	
+	/**找出lo在陣列中的位置
+	 * 對陣列進行分堆,小於lo的一堆,大於lo的一堆
+	 * 最後將lo置入他所在的位置
+	 * 回傳lo的索引
+	 */
 	private static int partition(int[] A,int lo,int hi) {
 		int i=lo;
 		int j=hi+1;
