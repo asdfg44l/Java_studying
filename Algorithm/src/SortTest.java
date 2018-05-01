@@ -85,7 +85,7 @@ public class SortTest{
 	/*依序輸入陣列,以及待交換的兩個id
 	 * 
 	 */
-	 private static void exch(int[] a,int i,int j) {
+	 public static void exch(int[] a,int i,int j) {
 		int buffer =a[i];
 		a[i]=a[j];
 		a[j]=buffer;
