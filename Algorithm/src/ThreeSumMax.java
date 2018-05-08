@@ -5,12 +5,11 @@ public class ThreeSumMax {
 		ThreeSumMax t=new ThreeSumMax();
 		int[] A = {1,4,3,5,7,2,6,8,9};
 		
-		t.T_MaxBoost(A);	
+		System.out.print(t.T_Max(A));	
 		//System.out.print("Time cost: "+s.elapseTime()+"¬í");
 		
 	}
   public int T_Max(int[] A) {
-	 int SumMax=0;
 	  for(int i=0;i<3;i++) {
 		  int Max=i;
 		  for(int j=i+1;j<A.length;j++) {
@@ -32,15 +31,13 @@ public class ThreeSumMax {
   public int T_MaxBoost(int[] A) {
 	int hi=A.length-1;
 	int mid=0+(hi+0)/2;
+	int[] B= {A[0],A[mid],A[hi]};
 	exch(A,1,mid);
 	exch(A,2,hi);
-	int[] B= {A[0],A[mid],A[hi]};
 	SortTest.InsertSort(B,0,2);
 
 	for(int i=3;i<A.length;i++) {
 		int buffer=A[i];
-		System.out.print(A[i]);
-
 		if(A[i]>B[0]) {
 			A[i]=B[0];
 			B[0]=buffer;
