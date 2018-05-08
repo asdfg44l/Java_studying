@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 public class myQuickSort 
 {   
+	public static void main(String[] args) {
+		int a =3;
+		int b =4;
+		System.out.print(myQuickSort.less(a,b));
+	}
     private static boolean less(Comparable v, Comparable s)
     {
     	if(v.compareTo(s)<0)return true;
@@ -21,7 +26,7 @@ public class myQuickSort
 	//將陣列中的元素洗亂
 	private static void shuffle(Comparable[] A)
 	{
-	   for(int i=0;i<A.length;i++) 
+	   for(int i=0;i<A.length-1;i++) 
 	   {
 		  int random=(int) (Math.random()*i+1);
 		  exch(A,i,random);
@@ -51,10 +56,10 @@ public class myQuickSort
 			while(less(A[++i],A[lo]))
 			   if(i==hi) break;
 			
-			while(!less(A[--j],A[lo]))
+			while(!less(A[lo],A[--j]))
 			   if(j==lo) break;
 			
-			if(i >=j) break;
+			if(i>=j) break;
 			exch(A, i, j);
 		}
 	   exch(A, lo, j);
